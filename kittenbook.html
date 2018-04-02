@@ -43,13 +43,20 @@ function sortTable(){
     var rows = table[0].rows;
     var chkSort = true;
 
-    for (var i = 1; i < (rows.length - 1); i++) {
-        var fCell = rows[i].cells[0];
-        var sCell = rows[i + 1].cells[0];
-        if (fCell.innerHTML.toLowerCase() > sCell.innerHTML.toLowerCase()) {
-            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+    
+    while(chkSort) {
+        chkSort = false;
+        
+        for(var i=1; i < (rows.length - 1); i++) {
+            var fCell = rows[i].cells[0];
+            var sCell = rows[i + 1].cells[0];
+        
+            if (fCell.innerHTML.toLowerCase() > sCell.innerHTML.toLowerCase()) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                chkSort =  true;
+            }
         }
-    }    
+    }   
 }
            
 </script>
